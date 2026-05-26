@@ -1,0 +1,6 @@
+site_name: Text Toolkit
+site_description: A Python utility library with automated CI pipeline
+nav:
+  - Home: index.md
+theme:
+  name: readthedocs
