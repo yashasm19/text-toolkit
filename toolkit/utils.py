@@ -23,3 +23,29 @@ def truncate(text: str, max_len: int, suffix: str = "...") -> str:
     if len(text) <= max_len:
         return text
     return text[:max_len - len(suffix)] + suffix
+
+
+def capitalize_words(text: str) -> str:
+    """Capitalize the first letter of each word."""
+    return " ".join(word.capitalize() for word in text.split())
+
+
+def count_vowels(text: str) -> int:
+    """Count the number of vowels in a string."""
+    return sum(1 for char in text.lower() if char in "aeiou")
+
+
+def remove_duplicates(text: str) -> str:
+    """Remove duplicate words from a string, preserving order."""
+    seen = set()
+    result = []
+    for word in text.split():
+        if word.lower() not in seen:
+            seen.add(word.lower())
+            result.append(word)
+    return " ".join(result)
+
+
+def slug(text: str) -> str:
+    """Convert text to a URL-friendly slug."""
+    return "-".join(text.lower().split())
