@@ -1,6 +1,12 @@
 site_name: Text Toolkit
 site_description: A Python utility library with automated CI pipeline
+site_url: https://yashasm19.github.io/text-toolkit/
+repo_url: https://github.com/yashasm19/text-toolkit
+repo_name: yashasm19/text-toolkit
+
 nav:
   - Home: index.md
+
 theme:
   name: readthedocs
+  highlightjs: true
