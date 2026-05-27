@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="A Python utility library with automated CI pipeline" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="A Python utility library with automated CI pipeline" /><link rel="canonical" href="https://yashasm19.github.io/text-toolkit/" />
       <link rel="shortcut icon" href="img/favicon.ico" />
     <title>Text Toolkit</title>
     <link rel="stylesheet" href="css/theme.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "Home";
         var mkdocs_page_input_path = "index.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/text-toolkit/";
       </script>
     
     <!--[if lt IE 9]>
@@ -42,7 +42,31 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#word_counttext">word_count(text)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reverse_wordstext">reverse_words(text)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#is_palindrometext">is_palindrome(text)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#truncatetext-max_len-suffix">truncate(text, max_len, suffix)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#capitalize_wordstext">capitalize_words(text)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#count_vowelstext">count_vowels(text)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remove_duplicatestext">remove_duplicates(text)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#slugtext">slug(text)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-tests">Running Tests</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pipeline">Pipeline</a>
     </li>
     </ul>
                 </li>
@@ -63,6 +87,7 @@
     <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Home</li>
     <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/yashasm19/text-toolkit/edit/master/docs/index.md">Edit on yashasm19/text-toolkit</a>
     </li>
   </ul>
   <hr/>
@@ -71,13 +96,68 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="text-toolkit">Text Toolkit</h1>
-<p>A Python utility library with automated CI pipeline using GitHub Actions.</p>
+<p><img alt="CI Pipeline" src="https://github.com/yashasm19/text-toolkit/actions/workflows/pipeline.yml/badge.svg" /></p>
+<p>A Python utility library with a fully automated CI/CD pipeline using GitHub Actions.</p>
+<hr />
+<h2 id="installation">Installation</h2>
+<pre><code class="language-bash">git clone https://github.com/yashasm19/text-toolkit.git
+cd text-toolkit
+pip install -r requirements-dev.txt
+</code></pre>
+<hr />
 <h2 id="functions">Functions</h2>
+<h3 id="word_counttext">word_count(text)</h3>
+<p>Count the frequency of each word in a string.</p>
+<pre><code class="language-python">word_count(&quot;hello world hello&quot;)
+# {&quot;hello&quot;: 2, &quot;world&quot;: 1}
+</code></pre>
+<h3 id="reverse_wordstext">reverse_words(text)</h3>
+<p>Reverse the order of words in a string.</p>
+<pre><code class="language-python">reverse_words(&quot;hello world&quot;)
+# &quot;world hello&quot;
+</code></pre>
+<h3 id="is_palindrometext">is_palindrome(text)</h3>
+<p>Check if a string is a palindrome, ignoring spaces and case.</p>
+<pre><code class="language-python">is_palindrome(&quot;racecar&quot;)  # True
+is_palindrome(&quot;hello&quot;)    # False
+</code></pre>
+<h3 id="truncatetext-max_len-suffix">truncate(text, max_len, suffix)</h3>
+<p>Truncate text to a maximum length.</p>
+<pre><code class="language-python">truncate(&quot;hello world&quot;, 8)
+# &quot;hello...&quot;
+</code></pre>
+<h3 id="capitalize_wordstext">capitalize_words(text)</h3>
+<p>Capitalize the first letter of each word.</p>
+<pre><code class="language-python">capitalize_words(&quot;hello world&quot;)
+# &quot;Hello World&quot;
+</code></pre>
+<h3 id="count_vowelstext">count_vowels(text)</h3>
+<p>Count the number of vowels in a string.</p>
+<pre><code class="language-python">count_vowels(&quot;hello world&quot;)
+# 3
+</code></pre>
+<h3 id="remove_duplicatestext">remove_duplicates(text)</h3>
+<p>Remove duplicate words while preserving order.</p>
+<pre><code class="language-python">remove_duplicates(&quot;hello world hello&quot;)
+# &quot;hello world&quot;
+</code></pre>
+<h3 id="slugtext">slug(text)</h3>
+<p>Convert text to a URL-friendly slug.</p>
+<pre><code class="language-python">slug(&quot;Hello World&quot;)
+# &quot;hello-world&quot;
+</code></pre>
+<hr />
+<h2 id="running-tests">Running Tests</h2>
+<pre><code class="language-bash">pytest --cov=toolkit
+</code></pre>
+<h2 id="pipeline">Pipeline</h2>
+<p>Every push to main automatically runs:</p>
 <ul>
-<li><strong>word_count</strong> - Count word frequency in a string</li>
-<li><strong>reverse_words</strong> - Reverse the order of words</li>
-<li><strong>is_palindrome</strong> - Check if a string is a palindrome</li>
-<li><strong>truncate</strong> - Truncate text to a max length</li>
+<li>Lint check with flake8</li>
+<li>Unit tests on Python 3.10, 3.11, and 3.12</li>
+<li>Code coverage enforcement (80% minimum)</li>
+<li>Security scan with bandit</li>
+<li>Documentation deployment to GitHub Pages</li>
 </ul>
               
             </div>
@@ -102,6 +182,10 @@
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     
+        <span>
+          <a href="https://github.com/yashasm19/text-toolkit" class="fa fa-code-fork" style="color: #fcfcfc"> yashasm19/text-toolkit</a>
+        </span>
+    
     
     
   </span>
@@ -122,5 +206,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-05-27 04:14:33.945745+00:00
+Build Date UTC : 2026-05-27 04:24:21.466278+00:00
 -->
